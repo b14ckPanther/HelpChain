@@ -1,0 +1,291 @@
+@import "tailwindcss";
+
+/* ============================================================
+   HELPCHAIN DESIGN TOKENS
+   Centralized design system — all raw values live here.
+   Components reference tokens via var(--hc-*) or Tailwind theme.
+   ============================================================ */
+
+:root {
+  /* ---- Color: Canvas & Surfaces ---- */
+  --hc-canvas: #0A0B0E;
+  --hc-surface: #12141A;
+  --hc-surface-raised: #1A1D25;
+  --hc-surface-overlay: #22252F;
+
+  /* ---- Color: Text ---- */
+  --hc-text: #F8F7F4;
+  --hc-text-muted: #B5B8C2;
+  --hc-text-subtle: #7A7E8A;
+
+  /* ---- Color: Semantic ---- */
+  --hc-help-red: #E5484D;
+  --hc-help-red-deep: #B92D37;
+  --hc-help-red-glow: rgba(229, 72, 77, 0.25);
+  --hc-help-red-muted: rgba(229, 72, 77, 0.15);
+  --hc-success: #35D07F;
+  --hc-success-muted: rgba(53, 208, 127, 0.15);
+  --hc-warning: #F6B94D;
+  --hc-warning-muted: rgba(246, 185, 77, 0.15);
+  --hc-violet: #A990FF;
+  --hc-violet-muted: rgba(169, 144, 255, 0.15);
+
+  /* ---- Color: Rewards (restrained gold) ---- */
+  --hc-reward-gold: #F6B94D;
+  --hc-reward-gold-muted: rgba(246, 185, 77, 0.12);
+  --hc-reward-gold-deep: #D4A043;
+
+  /* ---- Color: Border ---- */
+  --hc-border: rgba(255, 255, 255, 0.10);
+  --hc-border-subtle: rgba(255, 255, 255, 0.06);
+  --hc-border-focus: var(--hc-violet);
+
+  /* ---- Spacing Scale (4px base) ---- */
+  --hc-space-1: 0.25rem;   /* 4px */
+  --hc-space-2: 0.5rem;    /* 8px */
+  --hc-space-3: 0.75rem;   /* 12px */
+  --hc-space-4: 1rem;      /* 16px */
+  --hc-space-5: 1.25rem;   /* 20px */
+  --hc-space-6: 1.5rem;    /* 24px */
+  --hc-space-8: 2rem;      /* 32px */
+  --hc-space-10: 2.5rem;   /* 40px */
+  --hc-space-12: 3rem;     /* 48px */
+  --hc-space-16: 4rem;     /* 64px */
+  --hc-space-20: 5rem;     /* 80px */
+  --hc-space-24: 6rem;     /* 96px */
+
+  /* ---- Radius Scale ---- */
+  --hc-radius-sm: 0.375rem;   /* 6px  — small pills */
+  --hc-radius-md: 0.625rem;   /* 10px — cards */
+  --hc-radius-lg: 0.875rem;   /* 14px — surfaces */
+  --hc-radius-xl: 1.25rem;    /* 20px — modals/sheets */
+  --hc-radius-2xl: 1.5rem;    /* 24px — large containers */
+  --hc-radius-full: 9999px;   /* circles */
+
+  /* ---- Shadow / Elevation ---- */
+  --hc-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --hc-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --hc-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --hc-shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.6);
+  --hc-shadow-glow-red: 0 0 40px var(--hc-help-red-glow);
+  --hc-shadow-glow-violet: 0 0 30px rgba(169, 144, 255, 0.2);
+
+  /* ---- Animation Timing ---- */
+  --hc-duration-fast: 150ms;
+  --hc-duration-normal: 250ms;
+  --hc-duration-slow: 400ms;
+  --hc-duration-slower: 600ms;
+  --hc-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --hc-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --hc-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ---- Typography ---- */
+  --hc-font-family: var(--font-ubuntu), "Ubuntu", system-ui, -apple-system, sans-serif;
+  --hc-text-xs: 0.75rem;     /* 12px */
+  --hc-text-sm: 0.875rem;    /* 14px */
+  --hc-text-base: 1rem;      /* 16px */
+  --hc-text-lg: 1.125rem;    /* 18px */
+  --hc-text-xl: 1.25rem;     /* 20px */
+  --hc-text-2xl: 1.5rem;     /* 24px */
+  --hc-text-3xl: 1.875rem;   /* 30px */
+  --hc-text-4xl: 2.25rem;    /* 36px */
+  --hc-text-5xl: 3rem;       /* 48px */
+  --hc-leading-tight: 1.15;
+  --hc-leading-normal: 1.5;
+  --hc-leading-relaxed: 1.65;
+
+  /* ---- Touch Target Minimum ---- */
+  --hc-touch-min: 2.75rem;   /* 44px — WCAG minimum */
+  --hc-touch-lg: 3.5rem;     /* 56px — comfortable */
+}
+
+/* ============================================================
+   TAILWIND v4 THEME INTEGRATION
+   Expose tokens so Tailwind utilities can reference them.
+   ============================================================ */
+
+@theme inline {
+  --color-hc-canvas: var(--hc-canvas);
+  --color-hc-surface: var(--hc-surface);
+  --color-hc-surface-raised: var(--hc-surface-raised);
+  --color-hc-surface-overlay: var(--hc-surface-overlay);
+  --color-hc-text: var(--hc-text);
+  --color-hc-text-muted: var(--hc-text-muted);
+  --color-hc-text-subtle: var(--hc-text-subtle);
+  --color-hc-help-red: var(--hc-help-red);
+  --color-hc-help-red-deep: var(--hc-help-red-deep);
+  --color-hc-success: var(--hc-success);
+  --color-hc-warning: var(--hc-warning);
+  --color-hc-violet: var(--hc-violet);
+  --color-hc-border: var(--hc-border);
+  --color-hc-border-subtle: var(--hc-border-subtle);
+  --font-sans: var(--hc-font-family);
+}
+
+/* ============================================================
+   BASE STYLES
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100%;
+  min-height: 100dvh;
+  margin: 0;
+  overflow-x: hidden;
+  font-family: var(--hc-font-family);
+  font-size: var(--hc-text-base);
+  line-height: var(--hc-leading-normal);
+  color: var(--hc-text);
+  background-color: var(--hc-canvas);
+}
+
+/* ============================================================
+   FOCUS TREATMENT
+   Visible, high-contrast focus ring for keyboard navigation.
+   ============================================================ */
+
+:focus-visible {
+  outline: 2px solid var(--hc-border-focus);
+  outline-offset: 2px;
+  border-radius: var(--hc-radius-sm);
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ============================================================
+   REDUCED MOTION
+   Respect user preference — collapse all transitions to near-zero.
+   Preserve layout and feedback; only remove decorative animation.
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   SCROLLBAR STYLING (subtle, dark theme)
+   ============================================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--hc-border);
+  border-radius: var(--hc-radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--hc-text-subtle);
+}
+
+/* ============================================================
+   SELECTION
+   ============================================================ */
+
+::selection {
+  background: rgba(169, 144, 255, 0.3);
+  color: var(--hc-text);
+}
+
+/* ============================================================
+   UTILITY: Screen-reader only (used by ScreenReaderOnly component)
+   ============================================================ */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Prevent iOS Safari input zoom — use on form controls */
+.hc-input-base {
+  font-size: 16px;
+  line-height: var(--hc-leading-normal);
+}
+
+/* Shared brand mark sizing */
+.hc-brand-mark {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5rem;
+  height: 5rem;
+}
+
+/* ============================================================
+   ANIMATION KEYFRAMES
+   Reusable keyframes for component use.
+   ============================================================ */
+
+@keyframes hc-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes hc-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hc-pulse-subtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes hc-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes hc-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
