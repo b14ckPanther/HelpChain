@@ -63,7 +63,7 @@ export function DirectorEventLog({ events }: DirectorEventLogProps) {
 
       {orderedEvents.length === 0 ? (
         <p className="text-[var(--hc-text-sm)] text-[var(--hc-text-muted)]">
-          Demo events will appear here as the presentation runs.
+          Events will appear here as activity occurs.
         </p>
       ) : (
         <ol className="flex flex-col gap-[var(--hc-space-2)] max-h-[420px] overflow-y-auto pr-1" role="list">

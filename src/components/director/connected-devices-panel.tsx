@@ -22,7 +22,7 @@ export function ConnectedDevicesPanel({ devices }: ConnectedDevicesPanelProps) {
 
       {devices.length === 0 ? (
         <p className="text-[var(--hc-text-sm)] text-[var(--hc-text-muted)]">
-          No demo devices connected yet.
+          No devices connected yet.
         </p>
       ) : (
         <ul className="flex flex-col gap-[var(--hc-space-2)]" role="list">

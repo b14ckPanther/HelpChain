@@ -62,9 +62,9 @@ export function DirectorExperience() {
       setResetDialogOpen(false);
 
       if (success) {
-        setAriaAnnouncement(message || "Demo reset to baseline.");
+        setAriaAnnouncement(message || "System reset to baseline.");
       } else {
-        setAriaAnnouncement(err || "Demo reset failed.");
+        setAriaAnnouncement(err || "Reset failed.");
       }
     });
   }, [resetDemo]);
@@ -85,7 +85,7 @@ export function DirectorExperience() {
                   aria-hidden="true"
                 />
                 <p className="text-[var(--hc-text-sm)] text-[var(--hc-text-muted)]">
-                  {error || "Connect to the local Helpchain demo server to use director controls."}
+                  {error || "Connect to the Helpchain server to use director controls."}
                 </p>
               </div>
             </Surface>

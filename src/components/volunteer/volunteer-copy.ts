@@ -7,10 +7,23 @@ export const VOLUNTEER_COPY = {
   defaultName: "Noor",
   ratingText: "4.9 Rating",
 
+  nav: {
+    home: "Home",
+    dashboard: "Dashboard",
+    rewards: "Rewards",
+  },
+
+  completed: {
+    returnAvailable: "Return to availability",
+    returnHome: "Back to home screen",
+    viewRewards: "My rewards",
+  },
+
   ready: {
     title: "Be ready to help someone nearby.",
     buttonGoOnline: "Go available",
     connectedStatus: "Connected to Helpchain",
+    disconnectedStatus: "Waiting for connection",
     offlineStatus: "Unavailable",
   },
 
@@ -28,7 +41,7 @@ export const VOLUNTEER_COPY = {
     descriptionLabel: "Description",
     acceptButton: "Accept request",
     declineButton: "Decline",
-    simulatedProximity: "Simulated Proximity",
+    proximityLabel: "Nearby",
   },
 
   matched: {

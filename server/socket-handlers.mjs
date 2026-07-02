@@ -117,10 +117,10 @@ export function registerSocketHandlers(io, store) {
         socket.emit("director:action:completed", {
           action: "reset",
           success: true,
-          message: "Demo reset to baseline.",
+          message: "System reset to baseline.",
         });
         if (typeof callback === "function") {
-          callback({ success: true, message: "Demo reset to baseline." });
+          callback({ success: true, message: "System reset to baseline." });
         }
       } catch (err) {
         socket.emit("demo:error", { message: err.message });
@@ -390,7 +390,7 @@ export function registerSocketHandlers(io, store) {
       try {
         const coupon = store.coupons.get(couponId);
         if (!coupon) {
-          throw new Error("Demo coupon not found.");
+          throw new Error("Coupon not found.");
         }
 
         const redeemedCoupon = store.submitCouponRedemption(partnerId, coupon.couponCode);

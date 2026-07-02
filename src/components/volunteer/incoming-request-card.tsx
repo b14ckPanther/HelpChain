@@ -54,7 +54,7 @@ export function IncomingRequestCard({
             <span>{copy.alert}</span>
           </div>
           <span className="text-[10px] text-[var(--hc-text-subtle)] uppercase tracking-wider font-semibold">
-            {copy.simulatedProximity}
+            {copy.proximityLabel}
           </span>
         </div>
 

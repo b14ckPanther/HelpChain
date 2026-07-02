@@ -165,7 +165,7 @@ export function SeekingState({ onCancel }: SeekingStateProps) {
       {/* Simulated proximity label */}
       <div className="fixed bottom-2 left-0 right-0 flex justify-center pointer-events-none z-30" aria-hidden="true">
         <span className="text-[10px] text-[var(--hc-text-subtle)] opacity-50">
-          {copy.simulatedLabel}
+          {copy.nearbyLabel}
         </span>
       </div>
     </motion.div>

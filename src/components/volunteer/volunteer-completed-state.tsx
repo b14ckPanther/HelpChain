@@ -8,20 +8,26 @@
 
 import { useState, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
-import { Star, ShieldCheck, ArrowRight } from "lucide-react";
+import { Star, ShieldCheck, ArrowRight, LayoutDashboard } from "lucide-react";
 import { Surface, StatusPill, Button } from "@/components/ui";
 import { SessionTimeline, RatingSelector } from "@/components/session";
+import { VOLUNTEER_COPY } from "./volunteer-copy";
 import Link from "next/link";
 
 interface VolunteerCompletedStateProps {
   onRatingSubmit: (rating: number) => void;
   starBalance: number;
+  onReturnToDashboard: () => void;
+  wasAvailable: boolean;
 }
 
 export function VolunteerCompletedState({
   onRatingSubmit,
   starBalance,
+  onReturnToDashboard,
+  wasAvailable,
 }: VolunteerCompletedStateProps) {
+  const copy = VOLUNTEER_COPY.completed;
   const [displayStars, setDisplayStars] = useState(4);
   const controls = useAnimation();
 
@@ -98,12 +104,22 @@ export function VolunteerCompletedState({
         </Surface>
       </div>
 
-      {/* Safety warning */}
+      {/* Navigation actions */}
       <div className="w-full max-w-xs text-center flex flex-col gap-3">
+        <Button
+          variant="primary"
+          size="lg"
+          className="w-full flex items-center justify-center gap-2"
+          onClick={onReturnToDashboard}
+        >
+          <LayoutDashboard size={16} aria-hidden="true" />
+          <span>{wasAvailable ? copy.returnAvailable : copy.returnHome}</span>
+        </Button>
+
         <Link href="/rewards" className="w-full">
-          <Button variant="primary" size="lg" className="w-full flex items-center justify-center gap-2">
-            <span>My rewards</span>
-            <ArrowRight size={16} />
+          <Button variant="secondary" size="lg" className="w-full flex items-center justify-center gap-2">
+            <span>{copy.viewRewards}</span>
+            <ArrowRight size={16} aria-hidden="true" />
           </Button>
         </Link>
 

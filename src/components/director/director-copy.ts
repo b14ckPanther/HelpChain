@@ -4,24 +4,24 @@
 
 export const DIRECTOR_COPY = {
   pageTitle: "Helpchain Director",
-  subtitle: "Local presentation controls",
+  subtitle: "Operations console",
   notice:
-    "Use this screen to prepare and reset the Helpchain demonstration.",
-  persistenceNote: "Demo data resets when the local server restarts.",
+    "Use this screen to monitor activity, prepare scenarios, and reset the system.",
+  persistenceNote: "Session data resets when the server restarts.",
 
   connection: {
-    connected: "Connected to local demo server",
-    disconnected: "Waiting for local demo server",
+    connected: "Connected to Helpchain server",
+    disconnected: "Waiting for connection",
   },
 
   sections: {
-    health: "Demo health",
+    health: "System health",
     devices: "Connected devices",
     session: "Current session",
     rewards: "Rewards and coupons",
     setup: "Presentation setup",
     timeline: "Event timeline",
-    reset: "Reset demo",
+    reset: "Reset all",
   },
 
   healthLabels: {
@@ -38,7 +38,7 @@ export const DIRECTOR_COPY = {
     empty: "No active assistance session.",
     status: "Session status",
     category: "Help category",
-    location: "Demo location",
+    location: "Location",
     volunteer: "Assigned volunteer",
     milestone: "Session milestone",
     elapsed: "Session elapsed",
@@ -64,7 +64,7 @@ export const DIRECTOR_COPY = {
       title: "Help session ready",
       purpose: "Jump to a matched assistance session for rehearsal.",
       prepared:
-        "Matched Read text request at Demo Zone A with Noor assigned.",
+        "Matched Read text request at Main Hall with Noor assigned.",
       action: "Prepare help session",
     },
     rewards_ready: {
@@ -75,7 +75,7 @@ export const DIRECTOR_COPY = {
     },
     coupon_ready: {
       title: "Coupon ready",
-      purpose: "Demonstrate partner redemption with a real active coupon.",
+      purpose: "Show partner redemption with an active coupon.",
       prepared:
         "One active Haven Café coupon issued. Noor has 0 stars after redemption.",
       action: "Prepare coupon ready",
@@ -83,18 +83,18 @@ export const DIRECTOR_COPY = {
   },
 
   reset: {
-    title: "Reset demo",
+    title: "Reset all",
     description:
-      "Clear the active session, rewards, coupons, and demo history. Connected devices return to their starting state.",
-    action: "Reset demo",
+      "Clear the active session, rewards, coupons, and event history. Connected devices return to their starting state.",
+    action: "Reset all",
   },
 
   dialogs: {
     reset: {
-      title: "Reset the Helpchain demo?",
-      body: "This clears the active session, rewards, coupons, and demo history. Connected devices will return to their starting state.",
-      confirm: "Reset demo",
-      cancel: "Keep current demo",
+      title: "Reset Helpchain?",
+      body: "This clears the active session, rewards, coupons, and event history. Connected devices will return to their starting state.",
+      confirm: "Reset all",
+      cancel: "Keep current state",
     },
     scenarioConfirm: (title: string, purpose: string) =>
       `Prepare "${title}"? ${purpose}`,

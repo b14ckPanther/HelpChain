@@ -75,17 +75,17 @@ export function ScannerSurface({
               disabled={isSubmitting}
             >
               <Play size={14} fill="currentColor" />
-              <span>{copy.simulateBtn}</span>
+              <span>{copy.scanBtn}</span>
             </Button>
             <p className="text-[9px] text-[var(--hc-text-subtle)] font-medium max-w-[250px] mx-auto leading-relaxed">
-              {copy.simulateNotice} (Code: <span className="font-mono font-bold text-white">{activeCoupon.couponCode}</span>)
+              {copy.scanNotice} (Code: <span className="font-mono font-bold text-white">{activeCoupon.couponCode}</span>)
             </p>
           </>
         ) : (
           <Surface elevation="base" padding="sm" className="w-full flex items-start gap-2 border-[var(--hc-border)] bg-[var(--hc-surface-raised)]/25 text-[var(--hc-text-subtle)] text-left">
             <AlertCircle size={14} className="shrink-0 mt-0.5" />
             <p className="text-[10px] leading-relaxed">
-              No active Haven Café coupons found in the demo. Redeem a coupon on the volunteer device first to enable the simulate button.
+              No active Haven Café coupons found. Redeem a coupon on the volunteer device first to enable scanning.
             </p>
           </Surface>
         )}

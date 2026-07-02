@@ -9,11 +9,11 @@ export const PARTNER_COPY = {
   },
   scanner: {
     title: "Validate a Helpchain coupon",
-    label: "Demo scanner — no camera is used",
+    label: "Manual entry — camera not required",
     inputPlaceholder: "Enter HC-XXXX-XXXX coupon code",
     redeemBtn: "Redeem code",
-    simulateBtn: "Simulate scan of current demo coupon",
-    simulateNotice: "Demo simulation path — validates actual coupon on server",
+    scanBtn: "Scan active coupon",
+    scanNotice: "Validates coupon on server",
   },
   result: {
     successTitle: "Coupon validated",

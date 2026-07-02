@@ -19,7 +19,7 @@ export const REWARD_COPY = {
   couponDetail: {
     validity: "Valid for 30 days",
     instructions: (partnerName: string) => `Present this code at ${partnerName}.`,
-    disclaimer: "Demo partner coupon. Not valid at real businesses.",
+    disclaimer: "Present this coupon at the participating partner location.",
   },
   status: {
     active: "Active",

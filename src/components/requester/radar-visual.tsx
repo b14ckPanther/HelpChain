@@ -75,7 +75,7 @@ export function RadarVisual() {
         style={{ width: "200px" }}
       >
         <span className="text-[var(--hc-text-xs)] text-[var(--hc-violet)] opacity-60">
-          Simulated proximity
+          Searching nearby
         </span>
       </div>
     </div>

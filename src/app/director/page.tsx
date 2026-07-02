@@ -8,7 +8,7 @@ import { DirectorExperience } from "@/components/director";
 
 export const metadata: Metadata = {
   title: "Helpchain Director — Presentation Controls",
-  description: "Local presentation controls to monitor, reset, and prepare the Helpchain demonstration.",
+  description: "Operations console to monitor, reset, and prepare Helpchain sessions.",
   robots: {
     index: false,
     follow: false,

@@ -6,21 +6,26 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, ShieldCheck } from "lucide-react";
-import { Surface, StatusPill } from "@/components/ui";
+import { Award, ShieldCheck, Hand } from "lucide-react";
+import { Surface, StatusPill, Button } from "@/components/ui";
 import { SessionTimeline, RatingSelector } from "@/components/session";
+import { REQUESTER_COPY } from "./requester-copy";
+import Link from "next/link";
 
 interface RequesterCompletedStateProps {
   volunteerName: string;
   onRatingSubmit: (rating: number) => void;
   starBalance: number;
+  onRequestHelpAgain: () => void;
 }
 
 export function RequesterCompletedState({
   volunteerName,
   onRatingSubmit,
   starBalance,
+  onRequestHelpAgain,
 }: RequesterCompletedStateProps) {
+  const copy = REQUESTER_COPY.completed;
   return (
     <motion.div
       className="flex flex-col flex-1 px-[var(--hc-space-5)]"
@@ -72,12 +77,28 @@ export function RequesterCompletedState({
         </Surface>
       </div>
 
-      {/* Close note */}
-      <div className="pb-[var(--hc-space-8)] pt-[var(--hc-space-4)] w-full">
+      {/* Navigation actions */}
+      <div className="pb-[var(--hc-space-8)] pt-[var(--hc-space-4)] w-full max-w-xs mx-auto flex flex-col gap-3">
+        <Button
+          variant="danger"
+          size="lg"
+          className="w-full flex items-center justify-center gap-2"
+          onClick={onRequestHelpAgain}
+        >
+          <Hand size={18} aria-hidden="true" />
+          <span>{copy.requestAgain}</span>
+        </Button>
+
+        <Link href="/" className="w-full">
+          <Button variant="secondary" size="lg" className="w-full">
+            {REQUESTER_COPY.nav.home}
+          </Button>
+        </Link>
+
         <Surface elevation="base" padding="sm" className="border-dashed border-[var(--hc-border)] flex items-center gap-2">
           <ShieldCheck size={14} className="text-[var(--hc-text-subtle)] shrink-0" />
           <p className="text-[10px] text-[var(--hc-text-subtle)] text-center leading-relaxed">
-            Helpchain verified prototype closed. Rewards catalogue and QR coupon code redemptions will unlock in Phase 4.
+            Session verified. Thank you for using Helpchain. {copy.homeHint}
           </p>
         </Surface>
       </div>

@@ -249,6 +249,54 @@ body {
 }
 
 /* ============================================================
+   FORM INPUTS
+   Shared input styling for auth and profile forms.
+   ============================================================ */
+
+.hc-input {
+  width: 100%;
+  min-height: var(--hc-touch-min);
+  padding: var(--hc-space-3) var(--hc-space-4);
+  border-radius: var(--hc-radius-md);
+  border: 1px solid var(--hc-border);
+  background: var(--hc-surface);
+  color: var(--hc-text);
+  font-size: var(--hc-text-base);
+  line-height: var(--hc-leading-normal);
+  transition: border-color var(--hc-duration-fast) var(--hc-ease-out),
+    box-shadow var(--hc-duration-fast) var(--hc-ease-out);
+}
+
+.hc-input::placeholder {
+  color: var(--hc-text-subtle);
+}
+
+.hc-input:focus {
+  outline: none;
+  border-color: var(--hc-border-focus);
+  box-shadow: 0 0 0 3px var(--hc-violet-muted);
+}
+
+.hc-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+select.hc-input {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237A7E8A' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 2.5rem;
+}
+
+textarea.hc-input {
+  min-height: auto;
+  padding-top: var(--hc-space-3);
+  padding-bottom: var(--hc-space-3);
+}
+
+/* ============================================================
    ANIMATION KEYFRAMES
    Reusable keyframes for component use.
    ============================================================ */

@@ -6,4 +6,5 @@ export { VOLUNTEER_COPY } from "./volunteer-copy";
 export { VolunteerInProgressState } from "./volunteer-inprogress-state";
 export { VolunteerAwaitingConfirmState } from "./volunteer-awaiting-confirm-state";
 export { VolunteerCompletedState } from "./volunteer-completed-state";
+export { VolunteerNavBar } from "./volunteer-nav-bar";
 export type { VolunteerStep, LocalVolunteerState } from "./volunteer-types";

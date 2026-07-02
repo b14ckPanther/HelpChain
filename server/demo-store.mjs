@@ -269,7 +269,7 @@ export class DemoStore {
     this.clearDemoSessionAndRewards();
     this.setNoorStarBalance(BASELINE_STAR_BALANCE);
     this.resetVolunteerAvailability();
-    this.recordEvent("director_reset", "Demo reset to baseline.", "neutral");
+    this.recordEvent("director_reset", "System reset to baseline.", "neutral");
     return { success: true };
   }
 
@@ -283,7 +283,7 @@ export class DemoStore {
       status: "matched",
       category: "read_text",
       description: "Can someone help me read the platform sign?",
-      locationLabel: "Demo Zone A — Main Hall",
+      locationLabel: "Main Hall",
       createdAt: timestamp,
       volunteer: {
         participantId: NOOR_PARTICIPANT_ID,
@@ -591,7 +591,7 @@ export class DemoStore {
       status: "pending",
       category,
       description,
-      locationLabel: locationLabel || "Demo Zone A — Main Hall",
+      locationLabel: locationLabel || "Main Hall",
       createdAt: new Date().toISOString(),
       volunteer: null,
       session: null,
@@ -687,7 +687,7 @@ export class DemoStore {
     this.activeRequest.status = "in_progress";
     this.activeRequest.session.arrivedAt = new Date().toISOString();
 
-    const location = this.activeRequest.locationLabel || "the demo location";
+    const location = this.activeRequest.locationLabel || "the location";
     const volunteerName = this.activeRequest.volunteer?.displayName || "Noor";
     this.recordEvent(
       "volunteer_arrived",

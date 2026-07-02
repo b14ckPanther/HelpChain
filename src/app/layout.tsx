@@ -10,7 +10,7 @@ const ubuntu = Ubuntu({
 });
 
 export const metadata: Metadata = {
-  title: "Helpchain — Accessible Assist Device Prototype",
+  title: "Helpchain — Accessible Assist Device",
   description:
     "Helpchain helps people request nearby, situational assistance through an accessible real-time volunteer network.",
 };

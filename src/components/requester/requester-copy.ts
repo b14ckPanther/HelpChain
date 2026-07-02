@@ -7,14 +7,23 @@
 export const REQUESTER_COPY = {
   brand: "Helpchain",
 
+  nav: {
+    home: "Home",
+  },
+
+  completed: {
+    requestAgain: "I need help again",
+    homeHint: "Or return to the home page to switch roles.",
+  },
+
   // Ready state
   ready: {
     headline: "Need a hand nearby?",
     subline: "One clear action connects you with a nearby volunteer.",
     buttonLabel: "I need help",
     safetyNote: "For immediate danger, contact local emergency services.",
-    connectedStatus: "Connected to local Helpchain demo",
-    disconnectedStatus: "Waiting for local demo server",
+    connectedStatus: "Connected to Helpchain",
+    disconnectedStatus: "Waiting for connection",
   },
 
   // Category selection
@@ -42,11 +51,11 @@ export const REQUESTER_COPY = {
   details: {
     heading: "Describe what you need",
     descriptionPlaceholder: "Tell your volunteer what you need help with...",
-    voiceLabel: "Simulated voice input",
+    voiceLabel: "Voice input",
     voiceListening: "Listening...",
-    voiceReady: "Tap to use simulated voice",
-    voiceDisclaimer: "Simulated — does not use your microphone",
-    locationLabel: "Demo location",
+    voiceReady: "Tap to speak",
+    voiceDisclaimer: "An alternative to typing your request",
+    locationLabel: "Location",
     submitButton: "Send help request",
     editCategory: "Change",
   },
@@ -60,7 +69,7 @@ export const REQUESTER_COPY = {
   // Seeking state
   seeking: {
     headline: "Looking for a nearby volunteer",
-    subline: "We're notifying available volunteers near Demo Zone A.",
+    subline: "We're notifying available volunteers near Main Hall.",
     reassurance: "You can stay on this screen while we look.",
     searchingLabel: "Searching nearby",
     responseHint: "Response usually takes less than a minute",
@@ -69,8 +78,8 @@ export const REQUESTER_COPY = {
     cancelConfirmMessage: "Your request will be removed and volunteers will no longer be notified.",
     cancelConfirmYes: "Yes, cancel",
     cancelConfirmNo: "Keep looking",
-    simulatedLabel: "Simulated proximity — demo mode",
-    matchPreview: "Volunteer matching will appear here in the live prototype.",
+    nearbyLabel: "Searching nearby",
+    matchPreview: "Volunteer matching will appear here.",
   },
 
   // Demo voice transcript for "Read text" category

@@ -81,11 +81,11 @@ export function useDirectorRealtime() {
         {},
         (ack: { success: boolean; message?: string; error?: string }) => {
           if (ack?.success) {
-            setLastActionMessage(ack.message || "Demo reset to baseline.");
+            setLastActionMessage(ack.message || "System reset to baseline.");
             setError(null);
             if (callback) callback(true, ack.message);
           } else {
-            const errMsg = ack?.error || "Unable to reset the demo.";
+            const errMsg = ack?.error || "Unable to reset the system.";
             setError(errMsg);
             if (callback) callback(false, undefined, errMsg);
           }

@@ -35,5 +35,5 @@ export const INITIAL_REQUEST_STATE: LocalRequestState = {
   step: "ready",
   category: null,
   description: "",
-  locationLabel: "Demo Zone A — Main Hall",
+  locationLabel: "Main Hall",
 };

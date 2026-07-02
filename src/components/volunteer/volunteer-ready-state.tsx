@@ -40,7 +40,7 @@ export function VolunteerReadyState({
           </StatusPill>
         ) : (
           <StatusPill variant="danger">
-            Waiting for demo server
+            {copy.disconnectedStatus}
           </StatusPill>
         )}
       </div>
@@ -89,7 +89,7 @@ export function VolunteerReadyState({
       <div className="flex items-center gap-[var(--hc-space-2)] text-[var(--hc-text-subtle)] mt-[var(--hc-space-4)]">
         <ShieldAlert size={14} className="shrink-0" />
         <p className="text-[var(--hc-text-xs)] text-center">
-          Prototype demo only. Maintain personal safety guidelines.
+          Maintain personal safety guidelines at all times.
         </p>
       </div>
     </motion.div>

@@ -8,9 +8,9 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { AnimatePresence } from "framer-motion";
-import { ArrowLeft, AlertCircle, ShoppingBag } from "lucide-react";
-import Link from "next/link";
+import { AlertCircle, ShoppingBag } from "lucide-react";
 import { useDemoRealtime } from "@/lib/realtime";
+import { VolunteerNavBar } from "@/components/volunteer";
 import { WalletHeader } from "./wallet-header";
 import { RewardCatalog } from "./reward-catalog";
 import { CouponWallet } from "./coupon-wallet";
@@ -103,23 +103,13 @@ export function RewardsExperience() {
       </div>
 
       {/* Header Navigation Bar */}
-      <header className="flex items-center justify-between px-4 py-3 border-b border-[var(--hc-border-subtle)] shrink-0 bg-[var(--hc-surface)]">
-        <Link
-          href="/volunteer"
-          className="flex items-center gap-1.5 text-[var(--hc-text-xs)] text-[var(--hc-text-subtle)] hover:text-white font-semibold transition-colors min-h-[var(--hc-touch-min)] px-2"
-        >
-          <ArrowLeft size={14} />
-          <span>Dashboard</span>
-        </Link>
-        <h1 className="text-[var(--hc-text-sm)] font-bold text-[var(--hc-text)]">
-          Rewards Wallet
-        </h1>
-        
-        {/* Network connection check */}
+      <VolunteerNavBar activeTab="rewards" />
+
+      <div className="flex items-center justify-end px-4 py-2 border-b border-[var(--hc-border-subtle)] bg-[var(--hc-surface)]">
         <StatusPill variant={connected ? "success" : "danger"}>
           {connected ? "Online" : "Offline"}
         </StatusPill>
-      </header>
+      </div>
 
       {/* Main scrolling content */}
       <div className="flex-1 overflow-y-auto px-4 py-5 flex flex-col gap-6">

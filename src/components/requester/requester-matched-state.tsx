@@ -97,7 +97,7 @@ export function RequesterMatchedState({
           <p className="text-[10px] text-[var(--hc-text-subtle)] text-center leading-relaxed">
             You are now connected through Helpchain.<br />
             <span className="text-[var(--hc-violet)] font-medium">
-              Simulated Proximity — Demo Mode
+              Connected through Helpchain
             </span>
           </p>
         </Surface>

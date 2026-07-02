@@ -44,10 +44,10 @@ export function PartnerExperience() {
       setIsSubmitting(false);
       if (success && coupon) {
         setRedeemedCoupon(coupon);
-        setAriaAnnouncement(`Scan simulation successful. Coupon ${coupon.couponCode} validated.`);
+        setAriaAnnouncement(`Coupon ${coupon.couponCode} validated successfully.`);
       } else {
-        setValidationError(err || "Scan simulation failed.");
-        setAriaAnnouncement(`Scan simulation failed: ${err}`);
+        setValidationError(err || "Scan failed.");
+        setAriaAnnouncement(`Scan failed: ${err}`);
       }
     });
   }, [simulateCouponScan]);

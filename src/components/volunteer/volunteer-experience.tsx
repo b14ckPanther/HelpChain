@@ -13,6 +13,7 @@ import {
   VolunteerInProgressState,
   VolunteerAwaitingConfirmState,
   VolunteerCompletedState,
+  VolunteerNavBar,
 } from "./index";
 import { StatusPill, Surface, Button } from "@/components/ui";
 import type { LocalVolunteerState } from "./volunteer-types";
@@ -37,6 +38,7 @@ export function VolunteerExperience() {
     confirmArrival,
     markCompletion,
     submitRating,
+    cancelRequest,
   } = useDemoRealtime({
     role: "volunteer",
     displayName,
@@ -180,11 +182,31 @@ export function VolunteerExperience() {
     submitRating(request.id, rating, "volunteer");
   }, [realtimeState.activeRequest, submitRating]);
 
+  const handleReturnToDashboard = useCallback(() => {
+    const request = realtimeState.activeRequest;
+
+    const finish = () => {
+      setLocalState((prev) => ({
+        ...prev,
+        step: prev.available ? "waiting" : "ready",
+      }));
+    };
+
+    if (request) {
+      cancelRequest(request.id, () => finish());
+    } else {
+      finish();
+    }
+  }, [realtimeState.activeRequest, cancelRequest]);
+
   const activeRequest = realtimeState.activeRequest;
   const isAnotherVolMatch = activeRequest?.status === "matched" && activeRequest.volunteer?.displayName !== displayName;
 
   return (
     <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
+      <VolunteerNavBar activeTab="dashboard" />
+
+      <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
       <AnimatePresence mode="wait">
         {/* LOST MATCH RACE VIEW */}
         {isAnotherVolMatch && (
@@ -312,9 +334,12 @@ export function VolunteerExperience() {
           <VolunteerCompletedState
             onRatingSubmit={handleRatingSubmit}
             starBalance={activeRequest.volunteer?.starBalance || 5}
+            onReturnToDashboard={handleReturnToDashboard}
+            wasAvailable={localState.available}
           />
         )}
       </AnimatePresence>
+      </div>
     </div>
   );
 }

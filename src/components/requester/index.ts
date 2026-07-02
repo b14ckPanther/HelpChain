@@ -14,3 +14,4 @@ export { RequesterMatchedState } from "./requester-matched-state";
 export { RequesterInProgressState } from "./requester-inprogress-state";
 export { RequesterCompletionPromptState } from "./requester-completion-prompt-state";
 export { RequesterCompletedState } from "./requester-completed-state";
+export { RequesterNavBar } from "./requester-nav-bar";

@@ -15,6 +15,7 @@ import {
   RequesterCompletionPromptState,
   RequesterCompletedState,
   RequesterStatusAnnouncer,
+  RequesterNavBar,
 } from "./index";
 import type { RequesterStep, HelpCategory, LocalRequestState } from "./requester-types";
 import { INITIAL_REQUEST_STATE } from "./requester-types";
@@ -236,13 +237,31 @@ export function RequesterExperience() {
     }
   }, [realtimeState.activeRequest, submitRating]);
 
+  const handleRequestHelpAgain = useCallback(() => {
+    if (realtimeState.activeRequest) {
+      cancelRequest(realtimeState.activeRequest.id, (success) => {
+        if (success) {
+          setState(INITIAL_REQUEST_STATE);
+          setDismissedConfirm(false);
+          setStatusMessage("Ready for a new request.");
+        }
+      });
+    } else {
+      setState(INITIAL_REQUEST_STATE);
+      setDismissedConfirm(false);
+      setStatusMessage("Ready for a new request.");
+    }
+  }, [realtimeState.activeRequest, cancelRequest]);
+
   const activeReq = realtimeState.activeRequest;
   const isAwaitingConfirm = activeReq?.status === "awaiting_requester_confirmation";
 
   return (
     <div className="flex flex-col flex-1 min-h-0 overflow-hidden relative">
+      <RequesterNavBar />
       <RequesterStatusAnnouncer message={statusMessage} />
 
+      <div className="flex flex-col flex-1 min-h-0 overflow-hidden relative">
       <AnimatePresence mode="wait">
         {/* READY STATE */}
         {state.step === "ready" && (
@@ -390,6 +409,7 @@ export function RequesterExperience() {
               volunteerName={activeReq.volunteer.displayName}
               onRatingSubmit={handleRatingSubmit}
               starBalance={activeReq.volunteer.starBalance}
+              onRequestHelpAgain={handleRequestHelpAgain}
             />
           </motion.div>
         )}
@@ -418,6 +438,7 @@ export function RequesterExperience() {
           </Button>
         </div>
       )}
+      </div>
     </div>
   );
 }
