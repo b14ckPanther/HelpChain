@@ -1,0 +1,782 @@
+/* ============================================================
+   HELPCHAIN PRESENTATION ENGINE — STYLES
+   Standalone CSS for the /presentation route.
+   Does not import or modify globals.css.
+   ============================================================ */
+
+/* ---- Slide Canvas ---- */
+.pres-canvas {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background-color: #0A0B0E;
+  color: #F8F7F4;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: default;
+}
+
+/* ---- 16:9 Slide Container ---- */
+.pres-slide-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pres-slide-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 177.78vh; /* 16:9 width constraint */
+  max-height: 56.25vw;  /* 16:9 height constraint */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- Slide Shell ---- */
+.pres-slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 5rem;
+  overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .pres-slide {
+    padding: 3rem 3rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .pres-slide {
+    padding: 2rem 1.5rem;
+  }
+}
+
+/* ---- Background Image Layer ---- */
+.pres-bg-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.pres-bg-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.pres-bg-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.pres-bg-scrim--dark {
+  background: linear-gradient(
+    to left,
+    rgba(10, 11, 14, 0.95) 30%,
+    rgba(10, 11, 14, 0.7) 60%,
+    rgba(10, 11, 14, 0.4) 100%
+  );
+}
+
+.pres-bg-scrim--heavy {
+  background: rgba(10, 11, 14, 0.8);
+}
+
+.pres-bg-scrim--gradient-bottom {
+  background: linear-gradient(
+    to top,
+    rgba(10, 11, 14, 0.95) 15%,
+    rgba(10, 11, 14, 0.6) 50%,
+    rgba(10, 11, 14, 0.3) 100%
+  );
+}
+
+.pres-slide-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+/* ---- Typography: Hebrew (Heebo) ---- */
+.pres-font-he {
+  font-family: var(--font-heebo), 'Heebo', system-ui, sans-serif;
+  direction: rtl;
+}
+
+.pres-title {
+  font-family: var(--font-heebo), 'Heebo', system-ui, sans-serif;
+  font-size: clamp(1.75rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #F8F7F4;
+  margin: 0 0 1rem 0;
+}
+
+.pres-title--hero {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+
+.pres-subtitle {
+  font-family: var(--font-heebo), 'Heebo', system-ui, sans-serif;
+  font-size: clamp(1.125rem, 2.5vw, 1.75rem);
+  font-weight: 400;
+  line-height: 1.5;
+  color: #B5B8C2;
+  margin: 0;
+}
+
+.pres-body {
+  font-family: var(--font-heebo), 'Heebo', system-ui, sans-serif;
+  font-size: clamp(0.875rem, 1.5vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: #B5B8C2;
+}
+
+.pres-label {
+  font-family: var(--font-heebo), 'Heebo', system-ui, sans-serif;
+  font-size: clamp(0.75rem, 1.2vw, 1rem);
+  font-weight: 500;
+  color: #7A7E8A;
+  text-transform: none;
+}
+
+/* ---- Typography: English (Ubuntu) ---- */
+.pres-font-en {
+  font-family: var(--font-ubuntu), 'Ubuntu', system-ui, sans-serif;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+.pres-en-term {
+  font-family: var(--font-ubuntu), 'Ubuntu', system-ui, sans-serif;
+  direction: ltr;
+  unicode-bidi: isolate;
+  display: inline-block;
+}
+
+.pres-metric-value {
+  font-family: var(--font-ubuntu), 'Ubuntu', system-ui, sans-serif;
+  font-size: clamp(1.5rem, 3.5vw, 3rem);
+  font-weight: 700;
+  color: #F8F7F4;
+  direction: ltr;
+  unicode-bidi: isolate;
+  line-height: 1;
+}
+
+/* ---- Cards ---- */
+.pres-card {
+  background: rgba(18, 20, 26, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.875rem;
+  padding: 1.5rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.pres-card--persona {
+  background: rgba(18, 20, 26, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  padding: 1.5rem 2rem;
+}
+
+.pres-card--metric {
+  background: rgba(18, 20, 26, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.875rem;
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+}
+
+.pres-card--step {
+  background: rgba(26, 29, 37, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ---- Badge ---- */
+.pres-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border: 1px solid rgba(169, 144, 255, 0.3);
+  color: #A990FF;
+  background: rgba(169, 144, 255, 0.08);
+}
+
+.pres-badge--gold {
+  border-color: rgba(246, 185, 77, 0.3);
+  color: #F6B94D;
+  background: rgba(246, 185, 77, 0.08);
+}
+
+/* ---- Icon wrapper ---- */
+.pres-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pres-icon--violet {
+  color: #A990FF;
+}
+
+.pres-icon--red {
+  color: #E5484D;
+}
+
+.pres-icon--gold {
+  color: #F6B94D;
+}
+
+.pres-icon--success {
+  color: #35D07F;
+}
+
+.pres-icon--muted {
+  color: #7A7E8A;
+}
+
+/* ---- Controls ---- */
+.pres-controls {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(10, 11, 14, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 100;
+  transition: opacity 0.3s ease;
+}
+
+.pres-controls--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pres-controls:hover,
+.pres-controls:focus-within {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.pres-control-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: none;
+  border-radius: 9999px;
+  background: transparent;
+  color: #B5B8C2;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.pres-control-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #F8F7F4;
+}
+
+.pres-control-btn:focus-visible {
+  outline: 2px solid #A990FF;
+  outline-offset: 2px;
+}
+
+.pres-control-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.pres-control-divider {
+  width: 1px;
+  height: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0 0.25rem;
+}
+
+/* ---- Progress ---- */
+.pres-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.pres-progress-bar {
+  height: 100%;
+  background: #A990FF;
+  transition: width 0.3s ease;
+}
+
+.pres-slide-counter {
+  position: fixed;
+  top: 1.25rem;
+  left: 1.25rem;
+  font-family: var(--font-ubuntu), 'Ubuntu', system-ui, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.05em;
+  z-index: 100;
+  direction: ltr;
+}
+
+/* ---- Notes Panel ---- */
+.pres-notes-panel {
+  position: fixed;
+  bottom: 5rem;
+  right: 1.5rem;
+  width: min(380px, calc(100vw - 3rem));
+  max-height: 50vh;
+  overflow-y: auto;
+  background: rgba(18, 20, 26, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  z-index: 99;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.pres-notes-panel h3 {
+  font-family: var(--font-heebo), 'Heebo', system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #A990FF;
+  margin: 0 0 0.25rem 0;
+}
+
+.pres-notes-panel h4 {
+  font-family: var(--font-heebo), 'Heebo', system-ui, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #F6B94D;
+  margin: 1rem 0 0.25rem 0;
+}
+
+.pres-notes-panel p {
+  font-family: var(--font-heebo), 'Heebo', system-ui, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #B5B8C2;
+  margin: 0;
+}
+
+.pres-notes-meta {
+  font-family: var(--font-ubuntu), 'Ubuntu', system-ui, sans-serif;
+  font-size: 0.75rem;
+  color: #7A7E8A;
+  direction: ltr;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+/* ---- Overview Grid ---- */
+.pres-overview {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(10, 11, 14, 0.97);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.pres-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .pres-overview-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .pres-overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.pres-overview-tile {
+  aspect-ratio: 16/9;
+  background: rgba(18, 20, 26, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.625rem;
+  padding: 0.75rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  overflow: hidden;
+}
+
+.pres-overview-tile:hover {
+  border-color: rgba(169, 144, 255, 0.4);
+  background: rgba(26, 29, 37, 0.9);
+}
+
+.pres-overview-tile:focus-visible {
+  outline: 2px solid #A990FF;
+  outline-offset: 2px;
+}
+
+.pres-overview-tile--current {
+  border-color: #A990FF;
+  background: rgba(169, 144, 255, 0.08);
+}
+
+.pres-overview-tile-number {
+  font-family: var(--font-ubuntu), 'Ubuntu', system-ui, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: #7A7E8A;
+  margin-bottom: 0.25rem;
+}
+
+.pres-overview-tile-title {
+  font-family: var(--font-heebo), 'Heebo', system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #F8F7F4;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ---- Help Overlay ---- */
+.pres-help-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(10, 11, 14, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.pres-help-content {
+  max-width: 480px;
+  width: 100%;
+  padding: 2rem;
+}
+
+.pres-help-title {
+  font-family: var(--font-heebo), 'Heebo', system-ui, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #F8F7F4;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+}
+
+.pres-help-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.625rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.pres-help-key {
+  font-family: var(--font-ubuntu), 'Ubuntu', system-ui, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #A990FF;
+  background: rgba(169, 144, 255, 0.1);
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+  direction: ltr;
+}
+
+.pres-help-action {
+  font-family: var(--font-heebo), 'Heebo', system-ui, sans-serif;
+  font-size: 0.875rem;
+  color: #B5B8C2;
+}
+
+/* ---- Flow / Timeline ---- */
+.pres-flow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.pres-flow-arrow {
+  color: #7A7E8A;
+  flex-shrink: 0;
+}
+
+/* ---- Gantt Timeline ---- */
+.pres-gantt {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pres-gantt-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pres-gantt-stage {
+  font-family: var(--font-heebo), 'Heebo', system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #A990FF;
+  min-width: 3.5rem;
+  text-align: center;
+}
+
+.pres-gantt-bar {
+  flex: 1;
+  height: 2.5rem;
+  background: rgba(169, 144, 255, 0.12);
+  border: 1px solid rgba(169, 144, 255, 0.2);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.pres-gantt-name {
+  font-family: var(--font-ubuntu), 'Ubuntu', system-ui, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #F8F7F4;
+  direction: ltr;
+}
+
+.pres-gantt-desc {
+  font-family: var(--font-heebo), 'Heebo', system-ui, sans-serif;
+  font-size: 0.75rem;
+  color: #B5B8C2;
+}
+
+/* ---- Use Case Card ---- */
+.pres-usecase {
+  flex: 1;
+  min-width: 250px;
+  background: rgba(18, 20, 26, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.875rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.pres-usecase-id {
+  font-family: var(--font-ubuntu), 'Ubuntu', system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #A990FF;
+  direction: ltr;
+  margin-bottom: 0.5rem;
+}
+
+/* ---- Video Container ---- */
+.pres-video-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 16/9;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(18, 20, 26, 0.8);
+  margin: 0 auto;
+}
+
+.pres-video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pres-video-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* ---- Persona grid ---- */
+.pres-persona-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .pres-persona-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Segment Cards ---- */
+.pres-segment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .pres-segment-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Metric Grid ---- */
+.pres-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .pres-metric-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .pres-metric-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Reduced Motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .pres-progress-bar {
+    transition: none;
+  }
+  .pres-controls {
+    transition: none;
+  }
+  .pres-control-btn {
+    transition: none;
+  }
+  .pres-overview-tile {
+    transition: none;
+  }
+}
+
+/* ---- Brand Mark (presentation size) ---- */
+.pres-brand-mark {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pres-brand-ring {
+  position: absolute;
+  border-radius: 9999px;
+  border: 2px solid #E5484D;
+}
+
+.pres-brand-core {
+  border-radius: 9999px;
+  background: #E5484D;
+  box-shadow: 0 0 40px rgba(229, 72, 77, 0.25);
+}
+
+/* ---- Validation visual ---- */
+.pres-dual-validation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.pres-validation-card {
+  background: rgba(18, 20, 26, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  min-width: 200px;
+}
+
+.pres-validation-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ---- Use case flow ---- */
+.pres-usecase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .pres-usecase-grid {
+    grid-template-columns: 1fr;
+  }
+}
